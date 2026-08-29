@@ -1,0 +1,6 @@
+{
+  "name": "The Eastern Caravan",
+  "description": "Land of Tigers, Tea, and Tagore — Luxury & Heritage bespoke travels across Eastern India with interactive Caravan Builder, trilingual support, and instant PDF itinerary generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

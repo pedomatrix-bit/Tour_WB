@@ -1,0 +1,68 @@
+import { BlogPost } from '../types';
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: 'b1',
+    title: 'The Alchemy of the Spring First Flush in Darjeeling',
+    excerpt: 'How crisp mountain air, meltwater from Himalayan glaciers, and two leaves and a bud create the world’s most coveted liquor.',
+    category: 'Tea Culture',
+    readTime: '6 min read',
+    date: 'March 24, 2026',
+    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop',
+    author: 'Sunil Subba (Master Tea Planter)',
+    tags: ['Darjeeling', 'First Flush', 'Tea Estates', 'Kanchenjunga'],
+    content: [
+      'In early spring, when the snow begins to melt off the Singalila ridge, a quiet transformation sweeps over the 87 tea estates of Darjeeling. The Camellia sinensis bushes awaken from their winter dormancy.',
+      'Pluckers set out in the dawn mist with bamboo baskets (doko) tied with headstraps. Only the tender terminal bud and the two leaves immediately below it are selected. The resulting infusion is light, floral, and packed with the famous muscatel grape bouquet that fetches astronomical prices at international auctions.',
+      'During your stay at a colonial planter bungalow, our guests learn the delicate craft of cupping—evaluating liquor color, aroma briskness, and leaf uniformity alongside estate managers who have inherited this wisdom across four generations.',
+    ],
+  },
+  {
+    id: 'b2',
+    title: 'Deciphering Pugmarks: A Naturalist’s Journal in the Sundarbans',
+    excerpt: 'Tracking the amphibious Royal Bengal Tiger across tidal silt, mangrove pneumatophores, and labyrinthine creeks.',
+    category: 'Wilderness',
+    readTime: '8 min read',
+    date: 'April 10, 2026',
+    image: 'https://images.unsplash.com/photo-1575550959106-5a7defe28b56?q=80&w=900&auto=format&fit=crop',
+    author: 'Dr. Ananya Ray (Senior Wildlife Biologist)',
+    tags: ['Sundarbans', 'Tiger Tracking', 'Mangrove Delta', 'Conservation'],
+    content: [
+      'The Sundarbans does not reveal its apex predator to the hurried traveler. Here, nature operates on a 12-hour tidal cycle. As the low tide retreats, the glistening silt along the riverbanks acts as a fresh parchment.',
+      'A true naturalist looks for the asymmetry in the claw marks and the depth of the pad impression. In these brackish waters, tigers have evolved to drink slightly saline water and swim effortlessly across two-kilometer wide channels between forested islands.',
+      'On our silent electric-engine safaris, we position the boat downwind near natural creeks before daybreak. It is during these solitary hours that one witnesses the golden-amber coat of a tiger emerging silently from the Sundari thickets to drink.',
+    ],
+  },
+  {
+    id: 'b3',
+    title: 'The Red Earth & Soulful Baul Songs of Shantiniketan',
+    excerpt: 'Tracing Rabindranath Tagore’s vision of education without walls beneath ancient Banyan groves in Bolpur.',
+    category: 'Literature & Heritage',
+    readTime: '5 min read',
+    date: 'May 02, 2026',
+    image: 'https://images.unsplash.com/photo-1609137144822-2636a0d4a796?q=80&w=900&auto=format&fit=crop',
+    author: 'Prof. Soumitra Chatterjee',
+    tags: ['Shantiniketan', 'Rabindranath Tagore', 'Baul Music', 'Birbhum'],
+    content: [
+      'When Rabindranath Tagore chose the secluded scrubland of Birbhum to establish Visva-Bharati in 1901, he envisioned a learning sanctuary where human intellect flourished in direct dialogue with nature.',
+      'To this day, classes in Shantiniketan are conducted beneath the sheltering branches of Mango and Sal trees. As the afternoon wind rustles the dry leaves along the Kopai River, the intoxicating notes of the Ektara and Dotara instrument drift from the wandering Baul minstrels.',
+      'Our guests are treated to private courtyard gatherings where mystic singers impart ancient Sufi-Vaishnava philosophies of universal love, accompanied by the earthy aroma of roasted clay and piping hot Darjeeling chai.',
+    ],
+  },
+  {
+    id: 'b4',
+    title: 'Epics in Clay: The Terracotta Masterpieces of Bishnupur',
+    excerpt: 'How Malla kings transformed red alluvial mud into architectural marvels that rival the grandest stone temples of India.',
+    category: 'Art & Architecture',
+    readTime: '7 min read',
+    date: 'May 18, 2026',
+    image: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=900&auto=format&fit=crop',
+    author: 'Debashis Sen (Archaeological Researcher)',
+    tags: ['Bishnupur', 'Terracotta', 'Malla Dynasty', 'Baluchari Silk'],
+    content: [
+      'In the alluvial plains of Bengal, where stone was a rare luxury, the visionary Malla rulers of the 17th century turned to the red earth beneath their feet. They baked mud into enduring brick tiles, carving intricate narratives of royal processions, battle chariots, and celestial dancers.',
+      'The Rasmancha, with its pyramidal tower and stepped arches, stands as an engineering feat that allowed thousands of villagers to witness deities during the Ras festival.',
+      'Just a short walk away, master weavers sit at jacquard looms creating Baluchari sarees, using pure unspun silk threads to replicate the very terracotta motifs found on the temple walls.',
+    ],
+  },
+];
