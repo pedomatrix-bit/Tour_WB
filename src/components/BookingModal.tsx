@@ -124,9 +124,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         {/* Modal Header */}
         <div className="bg-[#0F1A2F] text-white px-6 py-5 flex items-center justify-between border-b border-[#D4AF37]/30">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#D4AF37] flex items-center justify-center text-[#0F1A2F]">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              className="w-9 h-9 rounded-full object-cover border border-[#D4AF37]/60 shadow-xs flex-shrink-0"
+              referrerPolicy="no-referrer"
+            />
             <div>
               <h3 className="text-lg font-bold font-editorial text-white">
                 {step === 'confirmed' ? t.booking.successTitle : t.booking.modalTitle}

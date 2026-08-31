@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AudienceTier, Currency, Language, TourPackage } from './types';
+import { AudienceTier, Currency, TourPackage } from './types';
 import { TRANSLATIONS } from './data/translations';
 import { TOUR_PACKAGES } from './data/packagesData';
 
@@ -24,7 +24,6 @@ import { ContactView } from './views/ContactView';
 
 export default function App() {
   // Global Application States
-  const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
   const [audienceTier, setAudienceTier] = useState<AudienceTier>('luxury');
   const [currency, setCurrency] = useState<Currency>('INR');
   const [currentView, setCurrentView] = useState<string>('home');
@@ -88,8 +87,6 @@ export default function App() {
       
       {/* Sticky Header Navigation */}
       <Header
-        currentLanguage={currentLanguage}
-        onLanguageChange={setCurrentLanguage}
         audienceTier={audienceTier}
         onAudienceTierChange={setAudienceTier}
         currency={currency}
@@ -110,7 +107,6 @@ export default function App() {
           <div className="space-y-0">
             {/* Cinematic Hero */}
             <HeroCarousel
-              currentLanguage={currentLanguage}
               audienceTier={audienceTier}
               currency={currency}
               onOpenBuilder={() => setCurrentView('builder')}
@@ -119,17 +115,19 @@ export default function App() {
 
             {/* Regional Landscapes & Terroirs Horizontal Showcase */}
             <CategoryCarousel
-              currentLanguage={currentLanguage}
               audienceTier={audienceTier}
               currency={currency}
               onSelectCategory={(categoryId) => {
+                setCurrentView('destinations');
+              }}
+              onViewAllDestinations={() => {
                 setCurrentView('destinations');
               }}
             />
 
             {/* Limited-Slot Seasonal Privilege Deals */}
             <FeaturedDealsCarousel
-              currentLanguage={currentLanguage}
+              currentLanguage="en"
               audienceTier={audienceTier}
               currency={currency}
               onSelectPackage={handleOpenItineraryDetail}
@@ -139,7 +137,7 @@ export default function App() {
             {/* Interactive Caravan Builder In Situ */}
             <div id="caravan-builder-section">
               <CaravanBuilder
-                currentLanguage={currentLanguage}
+                currentLanguage="en"
                 audienceTier={audienceTier}
                 onAudienceTierChange={setAudienceTier}
                 currency={currency}
@@ -148,7 +146,7 @@ export default function App() {
             </div>
 
             {/* Voices of the Caravan (Testimonials) */}
-            <TestimonialSlider currentLanguage={currentLanguage} />
+            <TestimonialSlider currentLanguage="en" />
 
             {/* Infinite Partner & Accolades Marquee */}
             <PartnerAccoladeSlider />
@@ -158,7 +156,7 @@ export default function App() {
         {/* VIEW: DESTINATIONS */}
         {currentView === 'destinations' && (
           <DestinationsView
-            currentLanguage={currentLanguage}
+            currentLanguage="en"
             audienceTier={audienceTier}
             currency={currency}
             onSelectDestinationPackage={handleDestinationCategorySelect}
@@ -169,7 +167,7 @@ export default function App() {
         {/* VIEW: PACKAGES */}
         {currentView === 'packages' && (
           <PackagesView
-            currentLanguage={currentLanguage}
+            currentLanguage="en"
             audienceTier={audienceTier}
             onAudienceTierChange={setAudienceTier}
             currency={currency}
@@ -181,7 +179,7 @@ export default function App() {
         {/* VIEW: DEDICATED CARAVAN BUILDER WIZARD */}
         {currentView === 'builder' && (
           <CaravanBuilder
-            currentLanguage={currentLanguage}
+            currentLanguage="en"
             audienceTier={audienceTier}
             onAudienceTierChange={setAudienceTier}
             currency={currency}
@@ -193,7 +191,7 @@ export default function App() {
         {currentView === 'detail' && selectedPackage && (
           <ItineraryDetailView
             pkg={selectedPackage}
-            currentLanguage={currentLanguage}
+            currentLanguage="en"
             audienceTier={audienceTier}
             onAudienceTierChange={setAudienceTier}
             currency={currency}
@@ -205,19 +203,19 @@ export default function App() {
         {/* VIEW: ABOUT (PHILOSOPHY & CONSERVATION) */}
         {currentView === 'about' && (
           <AboutView
-            currentLanguage={currentLanguage}
+            currentLanguage="en"
             onOpenBuilder={() => setCurrentView('builder')}
           />
         )}
 
         {/* VIEW: CARAVAN GAZETTE (BLOG & STORIES) */}
         {currentView === 'gazette' && (
-          <BlogView currentLanguage={currentLanguage} />
+          <BlogView currentLanguage="en" />
         )}
 
         {/* VIEW: CONTACT & APPOINTMENTS */}
         {currentView === 'contact' && (
-          <ContactView currentLanguage={currentLanguage} />
+          <ContactView currentLanguage="en" />
         )}
 
       </main>
@@ -228,12 +226,12 @@ export default function App() {
         onClose={() => setIsBookingModalOpen(false)}
         bookingData={activeBookingData}
         currency={currency}
-        currentLanguage={currentLanguage}
+        currentLanguage="en"
       />
 
       {/* Grand Footer */}
       <Footer
-        currentLanguage={currentLanguage}
+        currentLanguage="en"
         onNavigate={(view) => {
           setCurrentView(view);
           if (view !== 'detail') setSelectedPackage(null);
@@ -244,3 +242,4 @@ export default function App() {
     </div>
   );
 }
+

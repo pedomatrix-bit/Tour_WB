@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="50" cy="50" r="46" />
+    </clipPath>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#F5EFE6" stroke="#0F1A2F" stroke-width="4" />
+  
+  <g clip-path="url(#circleClip)">
+    <!-- Sky background -->
+    <rect x="0" y="0" width="100" height="100" fill="#F5EFE6" />
+    
+    <!-- Warm Sun -->
+    <circle cx="68" cy="32" r="14" fill="#E5A647" />
+    
+    <!-- Terracotta Back Hills -->
+    <path d="M48 40 Q65 30 96 55 L96 85 L45 85 Z" fill="#C45C4A" stroke="#0F1A2F" stroke-width="2.5" stroke-linejoin="round" />
+    
+    <!-- Mountain Base / Dark Slate Peaks -->
+    <path d="M6 55 L28 30 L46 48 L65 20 L88 45 L96 55 L6 55 Z" fill="#243E56" stroke="#0F1A2F" stroke-width="2.5" stroke-linejoin="round" />
+    
+    <!-- Snow caps -->
+    <path d="M28 30 L20 40 L26 38 L30 43 L34 38 L28 30 Z" fill="#FFFFFF" />
+    <path d="M65 20 L55 35 L62 33 L67 38 L72 32 L78 37 L65 20 Z" fill="#FFFFFF" />
+    
+    <!-- Sage Green Rolling Hills (Left) -->
+    <path d="M0 50 Q25 48 48 60 Q20 75 0 78 Z" fill="#5F7658" stroke="#0F1A2F" stroke-width="2.5" stroke-linejoin="round" />
+    
+    <!-- Terracotta / Gold Fore Hills (Right) -->
+    <path d="M52 56 Q75 52 98 62 L98 88 Q65 80 50 68 Z" fill="#C06C4C" stroke="#0F1A2F" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M55 68 Q78 64 98 82 L98 96 L45 96 Z" fill="#D3A056" stroke="#0F1A2F" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M0 72 Q25 70 42 80 L35 98 L0 98 Z" fill="#4B6349" stroke="#0F1A2F" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Silhouetted stylized trees / tea bushes -->
+    <!-- Left trees -->
+    <path d="M18 70 L18 60 M18 64 L14 60 M18 63 L22 59" stroke="#0F1A2F" stroke-width="2" stroke-linecap="round" fill="none" />
+    <path d="M26 76 L26 68 M26 72 L22 67 M26 71 L30 67" stroke="#0F1A2F" stroke-width="2" stroke-linecap="round" fill="none" />
+    <!-- Right trees -->
+    <path d="M78 84 L78 74 M78 79 L74 74 M78 78 L82 74" stroke="#0F1A2F" stroke-width="2" stroke-linecap="round" fill="none" />
+
+    <!-- S-Curve Winding River -->
+    <path d="M46 48 C40 56 46 64 53 68 C62 73 38 82 42 98 L30 98 C24 84 50 75 42 68 C36 63 32 55 46 48 Z" fill="#EAF2F8" stroke="#0F1A2F" stroke-width="2.5" stroke-linejoin="round" />
+    <!-- River lower flow line -->
+    <path d="M42 68 C48 72 32 82 36 98 L48 98 C48 86 58 75 50 68" fill="#759CB8" />
+  </g>
+  
+  <!-- Outer border ring -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#0F1A2F" stroke-width="4.5" />
+</svg>

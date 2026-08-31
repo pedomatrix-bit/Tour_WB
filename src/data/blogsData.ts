@@ -40,7 +40,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Literature & Heritage',
     readTime: '5 min read',
     date: 'May 02, 2026',
-    image: 'https://images.unsplash.com/photo-1609137144822-2636a0d4a796?q=80&w=900&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=900&auto=format&fit=crop',
     author: 'Prof. Soumitra Chatterjee',
     tags: ['Shantiniketan', 'Rabindranath Tagore', 'Baul Music', 'Birbhum'],
     content: [

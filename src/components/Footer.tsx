@@ -59,13 +59,21 @@ export const Footer: React.FC<FooterProps> = ({
           
           {/* Col 1: Brand & Bio (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold font-serif uppercase tracking-tight text-white">
-                {t.brandName}
-              </span>
-              <p className="text-[10px] text-[#C45C4A] tracking-[0.2em] uppercase font-bold mt-1">
-                {t.tagline}
-              </p>
+            <div className="flex items-center gap-3.5">
+              <img 
+                src="/logo.png" 
+                alt="The Eastern Caravan Emblem" 
+                className="w-12 h-12 rounded-full object-cover border border-[#D4AF37]/50 shadow-md flex-shrink-0"
+                referrerPolicy="no-referrer"
+              />
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold font-serif uppercase tracking-tight text-white leading-none">
+                  {t.brandName}
+                </span>
+                <p className="text-[10px] text-[#C45C4A] tracking-[0.2em] uppercase font-bold mt-1.5">
+                  {t.tagline}
+                </p>
+              </div>
             </div>
 
             <p className="text-xs leading-relaxed text-white/70">
