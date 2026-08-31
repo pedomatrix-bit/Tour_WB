@@ -462,9 +462,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
               <button
                 onClick={onClose}
-                className="text-xs font-semibold text-gray-500 hover:text-[#0F1A2F] underline"
+                className="text-xs font-semibold text-gray-500 hover:text-[#0F1A2F] underline cursor-pointer"
               >
-                Return to Grand Foyer
+                Return to Home
               </button>
             </div>
           )}

@@ -49,7 +49,6 @@ export const Header: React.FC<HeaderProps> = ({
     { key: 'home', label: t.nav.home },
     { key: 'destinations', label: t.nav.destinations },
     { key: 'packages', label: t.nav.packages },
-    { key: 'builder', label: t.nav.builder, isBuilder: true },
     { key: 'about', label: t.nav.about },
     { key: 'gazette', label: t.nav.journal },
     { key: 'contact', label: t.nav.contact },
@@ -182,26 +181,21 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
             {navItems.map((item) => {
               const isActive = activeViewKey === item.key;
               return (
                 <button
                   key={item.key}
                   id={`nav-link-${item.key}`}
-                  onClick={() => handleNavClick(item.key, item.isBuilder)}
-                  className={`text-[11px] xl:text-[12px] uppercase tracking-[0.15em] font-bold transition-all py-1.5 relative cursor-pointer ${
+                  onClick={() => handleNavClick(item.key)}
+                  className={`text-[11px] xl:text-[12px] uppercase tracking-[0.14em] font-bold transition-all py-1.5 px-1 relative cursor-pointer ${
                     isActive
-                      ? 'text-[#0F1A2F] border-b-2 border-[#C45C4A]'
-                      : 'text-[#0F1A2F]/65 hover:text-[#C45C4A]'
+                      ? 'text-[#C45C4A] border-b-2 border-[#C45C4A]'
+                      : 'text-[#0F1A2F]/70 hover:text-[#C45C4A]'
                   }`}
                 >
                   {item.label}
-                  {item.isBuilder && (
-                    <span className="ml-1.5 px-1.5 py-0.5 text-[8px] uppercase tracking-wider font-bold rounded bg-[#C45C4A] text-white">
-                      Wizard
-                    </span>
-                  )}
                 </button>
               );
             })}
@@ -285,7 +279,7 @@ export const Header: React.FC<HeaderProps> = ({
             {navItems.map((item) => (
               <button
                 key={item.key}
-                onClick={() => handleNavClick(item.key, item.isBuilder)}
+                onClick={() => handleNavClick(item.key)}
                 className={`text-left px-4 py-2.5 rounded-xl text-xs uppercase tracking-widest font-bold flex items-center justify-between transition-colors cursor-pointer ${
                   activeViewKey === item.key
                     ? 'bg-[#0F1A2F] text-white'
@@ -293,11 +287,6 @@ export const Header: React.FC<HeaderProps> = ({
                 }`}
               >
                 <span>{item.label}</span>
-                {item.isBuilder && (
-                  <span className="px-2 py-0.5 text-[9px] bg-[#C45C4A] text-white rounded font-bold">
-                    Wizard
-                  </span>
-                )}
               </button>
             ))}
           </div>
