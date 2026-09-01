@@ -20,7 +20,7 @@ interface ContactViewProps {
   currentLanguage: Language;
 }
 
-export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage }) => {
+export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage = 'en' }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -29,7 +29,8 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage }) => 
   const [step, setStep] = useState<'form' | 'otp' | 'submitted'>('form');
   const [otp, setOtp] = useState('');
 
-  const t = TRANSLATIONS[currentLanguage];
+  const t = TRANSLATIONS[currentLanguage] || TRANSLATIONS['en'];
+  const contactText = t?.contact || TRANSLATIONS['en'].contact;
 
   const handleSendOtp = (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,10 +71,10 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage }) => 
             <span>PRIVATE CONCIERGE & APPOINTMENTS</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold font-editorial text-[#0F1A2F]">
-            {t.contact.title}
+            {contactText.title}
           </h1>
           <p className="text-sm sm:text-base text-gray-600 font-serif">
-            {t.contact.subtitle}
+            {contactText.subtitle}
           </p>
         </div>
 
@@ -97,7 +98,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage }) => 
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#0F1A2F] mb-1">
-                      {t.contact.name}
+                      {contactText.name}
                     </label>
                     <input
                       type="text"
@@ -112,7 +113,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage }) => 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-[#0F1A2F] mb-1">
-                        {t.contact.email}
+                        {contactText.email}
                       </label>
                       <input
                         type="email"
@@ -126,7 +127,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage }) => 
 
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-[#0F1A2F] mb-1">
-                        {t.contact.phone}
+                        {contactText.phone}
                       </label>
                       <input
                         type="tel"
@@ -158,7 +159,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ currentLanguage }) => 
 
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#0F1A2F] mb-1">
-                      {t.contact.message}
+                      {contactText.message}
                     </label>
                     <textarea
                       rows={3}

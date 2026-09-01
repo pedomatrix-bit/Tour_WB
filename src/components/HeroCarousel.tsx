@@ -83,7 +83,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const t = TRANSLATIONS['en'];
-  const currentSlide = HERO_SLIDES[currentSlideIndex];
+  const currentSlide = HERO_SLIDES[currentSlideIndex] || HERO_SLIDES[0];
 
   // Auto rotation
   useEffect(() => {

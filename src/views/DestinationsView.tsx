@@ -11,7 +11,9 @@ import {
   ChevronLeft, 
   ChevronRight,
   Coffee,
-  CheckCircle2
+  CheckCircle2,
+  Search,
+  Clock
 } from 'lucide-react';
 import { Destination, AudienceTier, Currency, Language, TourPackage } from '../types';
 import { DESTINATIONS } from '../data/destinationsData';
@@ -33,14 +35,33 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
   onOpenBuilder,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeMoodIndex, setActiveMoodIndex] = useState<number>(0);
   const [featuredDestIndex, setFeaturedDestIndex] = useState<number>(0);
 
-  const filteredDestinations = selectedCategory === 'all'
-    ? DESTINATIONS
-    : DESTINATIONS.filter((d) => d.category === selectedCategory);
+  const filteredDestinations = DESTINATIONS.filter((d) => {
+    const matchesCat = selectedCategory === 'all' || d.category === selectedCategory;
+    const matchesSearch = searchQuery.trim() === '' || 
+      d.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      d.bengaliName.includes(searchQuery) ||
+      d.hindiName.includes(searchQuery) ||
+      d.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      d.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      d.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCat && matchesSearch;
+  });
 
-  const featuredDest = DESTINATIONS[featuredDestIndex];
+  const featuredDest = DESTINATIONS[featuredDestIndex] || DESTINATIONS[0];
+
+  const categoryTabs = [
+    { id: 'all', label: 'All Terroirs (15+)' },
+    { id: 'mountains', label: 'Himalayan & Sikkim' },
+    { id: 'tea', label: 'Tea Estates & Kurseong' },
+    { id: 'wildlife', label: 'Sundarbans & Dooars' },
+    { id: 'heritage', label: 'Tagore & Bishnupur' },
+    { id: 'coastal', label: 'Coastal & Beaches' },
+    { id: 'offbeat', label: 'Offbeat Hills & Forests' },
+  ];
 
   return (
     <div className="bg-[#FBF8F3] min-h-screen py-10 md:py-16">
@@ -163,27 +184,43 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
           </div>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {[
-            { id: 'all', label: 'All Terroirs & Regions' },
-            { id: 'tea', label: 'Darjeeling & Tea Estates' },
-            { id: 'wildlife', label: 'Sundarbans & Dooars Wildlife' },
-            { id: 'heritage', label: 'Tagore & Bishnupur Heritage' },
-            { id: 'mountains', label: 'Sikkim & Himalayan Trails' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setSelectedCategory(tab.id)}
-              className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
-                selectedCategory === tab.id
-                  ? 'bg-[#0F1A2F] text-[#D4AF37] shadow-md scale-105'
-                  : 'bg-white text-gray-700 border border-[#E2DBD0] hover:border-gray-400'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+        {/* Search & Filter Bar */}
+        <div className="space-y-4">
+          <div className="max-w-md mx-auto relative">
+            <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              placeholder="Search mountains, forests, coast, temples, homestays..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-11 pr-4 py-3 rounded-full bg-white border border-[#E2DBD0] text-xs font-sans text-[#0F1A2F] placeholder-gray-400 focus:outline-none focus:border-[#C45C4A] shadow-sm"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-[#0F1A2F]"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            {categoryTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedCategory(tab.id)}
+                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+                  selectedCategory === tab.id
+                    ? 'bg-[#0F1A2F] text-[#D4AF37] shadow-md scale-105'
+                    : 'bg-white text-gray-700 border border-[#E2DBD0] hover:border-gray-400'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Destinations Deep Dive Grid */}
@@ -206,12 +243,13 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A2F]/90 via-transparent to-transparent" />
                     
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-[#0F1A2F]/80 text-[#D4AF37] border border-[#D4AF37]/30 backdrop-blur-md">
-                        {dest.category}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-[#0F1A2F]/80 text-[#D4AF37] border border-[#D4AF37]/30 backdrop-blur-md truncate max-w-[140px]">
+                        {dest.region}
                       </span>
-                      <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-white/90 text-[#0F1A2F] shadow">
-                        {dest.bestTime.split('(')[0].trim()}
+                      <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-white/90 text-[#0F1A2F] shadow shrink-0 flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-[#C45C4A]" />
+                        {dest.durationRecommend}
                       </span>
                     </div>
 

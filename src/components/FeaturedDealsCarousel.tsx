@@ -32,7 +32,7 @@ export const FeaturedDealsCarousel: React.FC<FeaturedDealsCarouselProps> = ({
 
   // Take top packages for featured seasonal deals
   const deals = TOUR_PACKAGES.slice(0, 4);
-  const currentDeal = deals[dealIndex];
+  const currentDeal = deals[dealIndex] || deals[0] || TOUR_PACKAGES[0];
 
   const nextDeal = () => {
     setDealIndex((prev) => (prev + 1) % deals.length);

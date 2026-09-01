@@ -23,7 +23,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ currentLanguage }) => {
   const [trendingIndex, setTrendingIndex] = useState<number>(0);
 
   const trendingPosts = BLOG_POSTS.slice(0, 3);
-  const currentTrending = trendingPosts[trendingIndex];
+  const currentTrending = trendingPosts[trendingIndex] || trendingPosts[0] || BLOG_POSTS[0];
 
   return (
     <div className="bg-[#FBF8F3] min-h-screen py-10 md:py-16">

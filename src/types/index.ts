@@ -62,6 +62,15 @@ export interface TranslationSet {
     confirmBooking: string;
     successTitle: string;
   };
+  contact: {
+    title: string;
+    subtitle: string;
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+    submit: string;
+  };
   footer: {
     tagoreQuote: string;
     tagoreAuthor: string;
@@ -78,7 +87,7 @@ export interface Destination {
   name: string;
   bengaliName: string;
   hindiName: string;
-  category: 'mountains' | 'wildlife' | 'heritage' | 'cruises' | 'tea';
+  category: 'mountains' | 'wildlife' | 'heritage' | 'cruises' | 'tea' | 'coastal' | 'offbeat';
   heroImage: string;
   moodImages: string[];
   tagline: string;
@@ -89,6 +98,8 @@ export interface Destination {
   essentialHighlights: string[];
   iconicExperiences: string[];
   featuredTeaOrCraft: string;
+  region?: string;
+  durationRecommend?: string;
   startingPriceINR: {
     luxury: number;
     essential: number;

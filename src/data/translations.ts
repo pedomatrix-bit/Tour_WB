@@ -61,6 +61,15 @@ export const TRANSLATIONS: Record<Language, TranslationSet> = {
       confirmBooking: 'Confirm & Generate Booking Voucher',
       successTitle: 'Caravan Confirmed! Subho Jatra (Bon Voyage)',
     },
+    contact: {
+      title: 'Direct Private Concierge & Consultations',
+      subtitle: 'Schedule a tailored travel advisory session with our senior naturalists, curators, and route masters.',
+      name: 'Full Name & Honorific',
+      email: 'Email Address',
+      phone: 'Mobile Phone (WhatsApp Enabled)',
+      message: 'Expedition Vision & Specific Desires',
+      submit: 'Submit Consultation Request',
+    },
     footer: {
       tagoreQuote: '"Clouds come floating into my life, no longer to carry rain or usher storm, but to add colour to my sunset sky."',
       tagoreAuthor: '— Rabindranath Tagore, Nobel Laureate (1913)',
@@ -131,6 +140,15 @@ export const TRANSLATIONS: Record<Language, TranslationSet> = {
       confirmBooking: 'বুকিং ভাউচার তৈরি করুন',
       successTitle: 'শুভ যাত্রা! আপনার ক্যারাভান যাত্রা নিশ্চিত হয়েছে',
     },
+    contact: {
+      title: 'ব্যক্তিগত পরামর্শ ও সহায়তা কেন্দ্র',
+      subtitle: 'আমাদের অভিজ্ঞ প্রকৃতিবিদ ও ভ্রমণ বিশেষজ্ঞদের সাথে ব্যক্তিগত পরামর্শের সময় নির্ধারণ করুন।',
+      name: 'আপনার নাম',
+      email: 'ইমেল ঠিকানা',
+      phone: 'মোবাইল নম্বর (হোয়াটসঅ্যাপ)',
+      message: 'ভ্রমণ সংক্রান্ত তথ্য বা বিশেষ ইচ্ছা',
+      submit: 'পরামর্শ অনুরোধ পাঠান',
+    },
     footer: {
       tagoreQuote: '"মেঘেরা আমার জীবনে ভেসে আসে, আর বৃষ্টি বা ঝড় আনতে নয়, আমার সূর্যাস্তের আকাশে রঙ ছড়াতে।"',
       tagoreAuthor: '— রবীন্দ্রনাথ ঠাকুর, নোবেল বিজয়ী (১৯১৩)',
@@ -200,6 +218,15 @@ export const TRANSLATIONS: Record<Language, TranslationSet> = {
       payWithStripe: 'स्ट्राइप से अंतरराष्ट्रीय भुगतान (यूएसडी / यूरो)',
       confirmBooking: 'बुकिंग वाउचर प्राप्त करें',
       successTitle: 'शुभ यात्रा! आपका कारवां आरक्षण पूरा हुआ',
+    },
+    contact: {
+      title: 'व्यक्तिगत परामर्श एवं सहायता केंद्र',
+      subtitle: 'हमारे वरिष्ठ प्रकृतिविदों एवं यात्रा विशेषज्ञों के साथ व्यक्तिगत परामर्श बुक करें।',
+      name: 'पूरा नाम',
+      email: 'ईमेल पता',
+      phone: 'मोबाइल नंबर (व्हाट्सएप)',
+      message: 'यात्रा विवरण एवं विशेष आवश्यकताएं',
+      submit: 'परामर्श अनुरोध भेजें',
     },
     footer: {
       tagoreQuote: '"बादल मेरे जीवन में तैरते हुए आते हैं, अब बारिश या तूफान लाने के लिए नहीं, बल्कि मेरे सूर्यास्त के आकाश में रंग भरने के लिए।"',

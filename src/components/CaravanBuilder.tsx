@@ -19,7 +19,12 @@ import {
   Camera,
   Music,
   Utensils,
-  Eye
+  Eye,
+  Palmtree,
+  TreePine,
+  Landmark,
+  Compass,
+  Waves
 } from 'lucide-react';
 import { AudienceTier, CaravanBuilderState, Currency, Language } from '../types';
 import { TRANSLATIONS, CURRENCY_RATES } from '../data/translations';
@@ -43,39 +48,66 @@ interface CaravanBuilderProps {
 const VIBE_OPTIONS = [
   {
     id: 'mountains',
-    title: 'Himalayan Mist & Tea Hills',
-    desc: 'Planter bungalows, vintage steam train whistles & Kanchenjunga dawn panoramas',
+    title: 'Himalayan Summits & Sikkim Alpine',
+    desc: 'Kanchenjunga dawn panoramas, Sandakphu Singalila ridge treks, alpine lakes & snow valleys',
     icon: Mountain,
-    badge: 'Darjeeling • Kurseong • Kalimpong',
-    basePrice: 32000,
-    luxuryMultiplier: 2.7,
-  },
-  {
-    id: 'wildlife',
-    title: 'Tigers & Mangrove Estuaries',
-    desc: 'Silent river cruises, tiger tracking, salt-water crocodiles & bioluminescent plankton',
-    icon: Trees,
-    badge: 'Sundarbans • Dooars • Jaldapara',
-    basePrice: 28000,
-    luxuryMultiplier: 2.8,
-  },
-  {
-    id: 'heritage',
-    title: 'Tagore’s Red Earth & Terracotta',
-    desc: 'Open-air poetry classrooms, Sal tree groves, mystic Baul singers & ancient brick shrines',
-    icon: BookOpen,
-    badge: 'Shantiniketan • Bishnupur • Bolpur',
-    basePrice: 22000,
+    badge: 'Sandakphu • North Sikkim • Pelling • Kalimpong',
+    basePrice: 9800,
     luxuryMultiplier: 2.5,
   },
   {
+    id: 'tea',
+    title: 'Vintage Tea Estates & Planter Trails',
+    desc: '150-year-old British planter bungalows, UNESCO steam toy train joyrides & tea masterclasses',
+    icon: Coffee,
+    badge: 'Darjeeling • Kurseong • Mirik • Makaibari',
+    basePrice: 9200,
+    luxuryMultiplier: 2.5,
+  },
+  {
+    id: 'wildlife',
+    title: 'Sundarbans Delta & Wildlife Safaris',
+    desc: 'Silent tidal river cruisers, Royal Bengal Tiger tracking, rhino safaris & Jaldapara elephant trails',
+    icon: Trees,
+    badge: 'Sundarbans • Dooars • Jaldapara • Buxa',
+    basePrice: 8500,
+    luxuryMultiplier: 2.5,
+  },
+  {
+    id: 'heritage',
+    title: 'Tagore’s Red Earth & Terracotta Shrines',
+    desc: 'Open-air Visva-Bharati poetry groves, mystic Baul singers, 17th-century terracotta & Nawab palaces',
+    icon: Landmark,
+    badge: 'Shantiniketan • Bishnupur • Murshidabad',
+    basePrice: 6800,
+    luxuryMultiplier: 2.4,
+  },
+  {
     id: 'cruises',
-    title: 'Ganges Palaces & Riverine Voyage',
-    desc: 'Colonial river trading posts, 19th-century zamindari mansions & clay idol ateliers',
+    title: 'Ganges Palaces & Riverine Cruisers',
+    desc: 'Aristocratic river voyages past French Chandannagar, Danish Serampore, Plassey & idol ateliers',
     icon: Ship,
-    badge: 'Kolkata • Chandannagar • Kalna',
-    basePrice: 26000,
-    luxuryMultiplier: 2.6,
+    badge: 'Kolkata • Chandannagar • Kalna • Taki',
+    basePrice: 7500,
+    luxuryMultiplier: 2.5,
+  },
+  {
+    id: 'coastal',
+    title: 'Bay of Bengal Shores & Coastal Estuaries',
+    desc: 'Drive-on beaches, red ghost crab dunes, fresh seafood catch, Shankarpur harbor & Chilika lagoon',
+    icon: Waves,
+    badge: 'Mandarmani • Tajpur • Digha • Puri-Konark',
+    basePrice: 6200,
+    luxuryMultiplier: 2.3,
+  },
+  {
+    id: 'offbeat',
+    title: 'Offbeat Cloud Forests & Red Hill Retreats',
+    desc: 'Secluded pine canopies, organic village homestays, waterfalls, Ayodhya hills & Mukutmanipur lakes',
+    icon: TreePine,
+    badge: 'Lamahatta • Lepchajagat • Lava-Rishyap • Purulia',
+    basePrice: 5800,
+    luxuryMultiplier: 2.3,
   },
 ];
 
@@ -108,7 +140,7 @@ export const CaravanBuilder: React.FC<CaravanBuilderProps> = ({
   const [selectedVibe, setSelectedVibe] = useState<string>('mountains');
   const [selectedDuration, setSelectedDuration] = useState<string>('5N6D');
   const [travelersCount, setTravelersCount] = useState<number>(2);
-  const [budgetSliderINR, setBudgetSliderINR] = useState<number>(audienceTier === 'luxury' ? 85000 : 32000);
+  const [budgetSliderINR, setBudgetSliderINR] = useState<number>(audienceTier === 'luxury' ? 24500 : 9800);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([
     'tea',
     'culinary',
@@ -135,10 +167,13 @@ export const CaravanBuilder: React.FC<CaravanBuilderProps> = ({
   // Generate dynamic evocative title
   const generateDynamicTitle = () => {
     const vibeNames: Record<string, string> = {
-      mountains: 'The Grand Kanchenjunga & Tea Estate Caravan',
+      mountains: 'The Grand Kanchenjunga & Sikkim Alpine Caravan',
+      tea: 'The Darjeeling Vintage Tea & Planter Caravan',
       wildlife: 'The Royal Bengal Tiger & Delta Safari Caravan',
       heritage: 'The Tagore Red-Earth & Terracotta Caravan',
-      cruises: 'The Ganges Renaissance & Palaces Caravan',
+      cruises: 'The Ganges Renaissance & Palaces River Caravan',
+      coastal: 'The Bay of Bengal Golden Coastal Caravan',
+      offbeat: 'The Eastern Cloud Forest & Red Hills Caravan',
     };
     return vibeNames[selectedVibe] || 'The Bespoke Eastern Caravan';
   };
@@ -463,16 +498,16 @@ export const CaravanBuilder: React.FC<CaravanBuilderProps> = ({
 
                   <input
                     type="range"
-                    min="18000"
-                    max="220000"
-                    step="5000"
+                    min="5000"
+                    max="65000"
+                    step="1000"
                     value={budgetSliderINR}
                     onChange={(e) => {
                       const val = Number(e.target.value);
                       setBudgetSliderINR(val);
-                      if (val > 55000 && audienceTier !== 'luxury') {
+                      if (val > 18000 && audienceTier !== 'luxury') {
                         onAudienceTierChange('luxury');
-                      } else if (val <= 55000 && audienceTier !== 'essential') {
+                      } else if (val <= 18000 && audienceTier !== 'essential') {
                         onAudienceTierChange('essential');
                       }
                     }}
@@ -480,8 +515,8 @@ export const CaravanBuilder: React.FC<CaravanBuilderProps> = ({
                   />
 
                   <div className="flex justify-between text-[11px] text-[#0F1A2F]/60 font-semibold">
-                    <span>₹18,000 (Essential Heritage)</span>
-                    <span>₹2,20,000 (Royal Bespoke)</span>
+                    <span>₹5,000 (Essential & Homestay)</span>
+                    <span>₹65,000 (Royal Heritage)</span>
                   </div>
                 </div>
               </div>
